@@ -6,7 +6,8 @@ import { SidebarVisibleContext } from '../components/Layout'
 
 const Container = styled.nav`
   transition: 0.5s;
-  ${tw('container px-8 md:px-16 xl:px-32 h-24 bg-white flex items-center relative shadow')};
+  ${tw('fixed w-full')};
+  ${tw('container px-8 md:px-16 xl:px-32 h-24 bg-white flex items-center lg:relative shadow')};
 `
 
 const Links = styled.div`
@@ -45,16 +46,23 @@ const Menu = () => (
   </SidebarVisibleContext.Consumer>
 )
 
+const TakeSpaceWhenFixed = styled.div`
+  ${tw('h-24 w-100 lg:hidden')};
+`
+
 const Navigation = () => (
-  <Container>
-    <Menu />
-    <Logo />
-    <Links>
-      <LinkItems to="https://github.com/gatsbook/gatsbook">Github</LinkItems>
-      <LinkItems to="/">Discord</LinkItems>
-      <LinkItems to="/">Need Help?</LinkItems>
-    </Links>
-  </Container>
+  <React.Fragment>
+    <Container>
+      <Menu />
+      <Logo />
+      <Links>
+        <LinkItems to="https://github.com/gatsbook/gatsbook">Github</LinkItems>
+        <LinkItems to="/">Discord</LinkItems>
+        <LinkItems to="/">Need Help?</LinkItems>
+      </Links>
+    </Container>
+    <TakeSpaceWhenFixed />
+  </React.Fragment>
 )
 
 export default Navigation
