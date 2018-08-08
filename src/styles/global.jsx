@@ -8,7 +8,11 @@ injectGlobal`
   }
   a {
     text-decoration: none;
-    ${tw('text-purple')};
+    ${tw('text-primary')};
+  }
+  hr {
+    border: 1px solid;
+    ${tw('border-grey-lighter')};
   }
   html {
     text-rendering: optimizeLegibility;
