@@ -17,11 +17,11 @@ const DateContainer = styled.div`
   ${tw('inline-block pl-40 absolute')};
 `
 const Date = styled.div`
-  ${tw('w-4/5 text-white text-right float-right')};
+  ${tw('w-4/5  text-right float-right')};
 `
 
 const Content = styled.div`
-  ${tw('mx-auto w-3/5 px-8 text-white text-xl')};
+  ${tw('mx-auto w-3/5 px-8 text-xl')};
 `
 
 export const Blog = ({ data }) => {
