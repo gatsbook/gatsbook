@@ -57,8 +57,8 @@ const Navigation = () => (
       <Logo />
       <Links>
         <LinkItems to="https://github.com/gatsbook/gatsbook">Github</LinkItems>
-        <LinkItems to="/">Discord</LinkItems>
-        <LinkItems to="/">Need Help?</LinkItems>
+        <LinkItems to="/docs">Docs</LinkItems>
+        <LinkItems to="/blog">Blog</LinkItems>
       </Links>
     </Container>
     <TakeSpaceWhenFixed />
