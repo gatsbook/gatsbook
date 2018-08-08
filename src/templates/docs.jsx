@@ -5,6 +5,9 @@ import styled from 'react-emotion'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 import TableOfContent from '../components/TableOfContent'
+import TimeToRead from '../components/TimeToRead'
+import Date from '../components/Date'
+import Seperator from '../components/Seperator'
 
 const Content = styled.div`
   ${tw('container flex-1')};
@@ -20,12 +23,6 @@ const Header = styled.div`
 const Title = styled.h1`
   ${tw('text-4xl m-0')};
 `
-const Date = styled.span`
-  ${tw('text-sm mt-2 text-grey')};
-`
-const TimeToRead = styled.span`
-  ${tw('text-sm text-grey')};
-`
 
 const Body = styled.div`
   ${tw('mx-auto')};
@@ -33,12 +30,6 @@ const Body = styled.div`
 
 const Container = styled.div`
   ${tw('flex container')};
-`
-
-const Seperator = styled.span`
-  position: relative;
-  top: 0.2rem;
-  ${tw('font-black px-3 ')};
 `
 
 export const Docs = ({ data }) => {

@@ -1,33 +1,36 @@
 import React from 'react'
 import styled from 'react-emotion'
 import PropTypes from 'prop-types'
-import { graphql, Link as UnstyledLink } from 'gatsby'
+import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
+import Layout from '../../components/Layout'
+import PostCard from '../../components/PostCard'
 
 const Container = styled.div`
-  ${tw('text-white')};
+  ${tw('flex flex-col items-center')};
 `
 
-const Title = styled.h1``
-const Subtitle = styled.h2``
-const List = styled.ul``
-const Item = styled.li``
-const Link = styled(UnstyledLink)`
-  color: white;
-  text-decoration: none;
+const CardContainer = styled.div`
+  ${tw('w-1/2 py-8')};
 `
 
 const BlogIndex = ({ data }) => (
-  <Container>
-    <Title>Blog</Title>
-    <Subtitle>Wrote {data.allMarkdownRemark.totalCount} post</Subtitle>
-    <List>
+  <Layout>
+    <Container>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <Link to={node.fields.slug} key={node.fields.slug}>
-          <Item>{node.frontmatter.title}</Item>
-        </Link>
+        <CardContainer key={node.id}>
+          <Link to={node.fields.slug}>
+            <PostCard
+              title={node.frontmatter.title}
+              timeToRead={5}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+            />
+          </Link>
+        </CardContainer>
       ))}
-    </List>
-  </Container>
+    </Container>
+  </Layout>
 )
 BlogIndex.propTypes = {
   data: PropTypes.object.isRequired,
@@ -35,7 +38,7 @@ BlogIndex.propTypes = {
 
 export const query = graphql`
   query BlogIndex {
-    allMarkdownRemark {
+    allMarkdownRemark(filter: { fields: { template: { eq: "blog" } } }) {
       totalCount
       edges {
         node {
