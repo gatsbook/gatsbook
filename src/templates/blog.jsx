@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import Layout from '../components/Layout'
-import Navigation from '../components/Navigation'
 
 const PostContainer = styled.div`
   ${tw('container')};
@@ -25,15 +24,10 @@ const Content = styled.div`
   ${tw('mx-auto w-3/5 px-8 text-white text-xl')};
 `
 
-const NavigationContainer = styled.div``
-
 export const Blog = ({ data }) => {
   const post = data.markdownRemark
   return (
     <Layout>
-      <NavigationContainer>
-        <Navigation />
-      </NavigationContainer>
       <PostContainer>
         <Header>
           <Title>{post.frontmatter.title}</Title>
