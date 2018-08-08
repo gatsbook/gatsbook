@@ -15,12 +15,14 @@ const ListItem = styled.li`
   ${tw('text-sm text-grey-dark my-2')};
 `
 
+const headingToId = string => `#${string.toLowerCase().replace(/\s/g, '-')}`
+
 const TableOfContent = ({ headings }) => (
   <Container>
     <span>Table Of Content</span>
     <List>
       {headings.map(heading => (
-        <a key={heading.value} href={`#${heading.value.toLowerCase().replace(' ', '-')}`}>
+        <a key={heading.value} href={headingToId(heading.value)}>
           <ListItem key={heading.value} depth={heading.depth}>
             {heading.value}
           </ListItem>
