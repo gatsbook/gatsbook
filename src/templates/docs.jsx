@@ -41,11 +41,6 @@ const Seperator = styled.span`
   ${tw('font-black px-3 ')};
 `
 
-const HR = styled.hr`
-  border: 1px solid;
-  ${tw('border-grey-lighter')};
-`
-
 export const Docs = ({ data }) => {
   const content = data.markdownRemark
   return (
@@ -60,7 +55,7 @@ export const Docs = ({ data }) => {
               <Seperator>&middot;</Seperator>
               <Date>Last Updated {content.frontmatter.date}</Date>
             </Header>
-            <HR />
+            <hr />
             <Body dangerouslySetInnerHTML={{ __html: content.html }} />
           </ContentContainer>
         </Content>
