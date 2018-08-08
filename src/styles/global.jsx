@@ -8,6 +8,7 @@ injectGlobal`
   }
   a {
     text-decoration: none;
+    ${tw('text-purple')};
   }
   html {
     text-rendering: optimizeLegibility;

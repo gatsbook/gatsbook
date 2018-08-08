@@ -29,9 +29,6 @@ const TimeToRead = styled.span`
 
 const Body = styled.div`
   ${tw('mx-auto')};
-  a {
-    ${tw('text-purple')};
-  }
 `
 
 const Container = styled.div`

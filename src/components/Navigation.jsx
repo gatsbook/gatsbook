@@ -14,7 +14,7 @@ const Links = styled.div`
   ${tw('hidden lg:block')};
 `
 const LinkItems = styled(Link)`
-  ${tw('no-underline pl-16 text-purple text-xl font-medium font-heading')};
+  ${tw('no-underline pl-16 text-xl font-medium font-heading')};
 `
 
 const LogoImage = styled.img`
