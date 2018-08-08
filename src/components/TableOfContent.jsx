@@ -3,7 +3,7 @@ import styled from 'react-emotion'
 import PropTypes from 'prop-types'
 
 const Container = styled.div`
-  ${tw('w-1/5 pt-8')};
+  ${tw('w-1/5 pt-8 hidden xl:block')};
 `
 const List = styled.ul`
   border-left: 1px solid;

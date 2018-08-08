@@ -3,10 +3,23 @@ import styled, { css } from 'react-emotion'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import data from '../../sidebar'
+import { SidebarVisibleContext } from '../components/Layout'
+
+const hide = css`
+  width: 0;
+  padding-left: 0;
+`
 
 const Container = styled.div`
-  ${tw('w-1/4 bg-grey-lighter flex pt-8 justify-center')};
+  transition: 0.5s;
+  ${tw('bg-grey-lighter pt-8 flex overflow-hidden')};
+  /* mobile */
+  ${tw('w-4/5 fixed min-h-full pl-8')};
+  /* desktop */
+  ${tw('lg:w-1/4 lg:static lg:justify-center')};
+  ${props => !props.isVisible && hide};
 `
+
 const StyledLink = styled(Link)`
   ${tw('no-underline text-black')};
 `
@@ -38,10 +51,17 @@ Item.defaultProps = {
   head: false,
 }
 
-const Sidebar = () => (
-  <Container>
+const Sidebar = ({ isVisible }) => (
+  <Container isVisible={isVisible}>
     <List>{data.map(({ title, slug, head }) => <Item key={slug} title={title} slug={slug} head={head} />)}</List>
   </Container>
 )
+Sidebar.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+}
 
-export default Sidebar
+const SidebarWithContext = () => (
+  <SidebarVisibleContext.Consumer>{({ on }) => <Sidebar isVisible={on} />}</SidebarVisibleContext.Consumer>
+)
+
+export default SidebarWithContext

@@ -2,12 +2,16 @@ import React from 'react'
 import styled, { css } from 'react-emotion'
 import Link from '../components/Link'
 import logo from '../images/logo.svg'
+import { SidebarVisibleContext } from '../components/Layout'
 
 const Container = styled.nav`
-  ${tw('container px-32 h-24 bg-white flex items-center relative shadow')};
+  transition: 0.5s;
+  ${tw('container px-8 md:px-16 xl:px-32 h-24 bg-white flex items-center relative shadow')};
 `
 
-const Links = styled.div``
+const Links = styled.div`
+  ${tw('hidden lg:block')};
+`
 const LinkItems = styled(Link)`
   ${tw('no-underline pl-16 text-purple text-xl font-medium font-heading')};
 `
@@ -30,8 +34,20 @@ const Logo = () => (
   </Link>
 )
 
+const Menu = props => (
+  <div
+    {...props}
+    className={css`
+      ${tw('block lg:hidden pr-4 text-lg')};
+    `}
+  >
+    &#9776;
+  </div>
+)
+
 const Navigation = () => (
   <Container>
+    <SidebarVisibleContext.Consumer>{({ toggle }) => <Menu onClick={toggle} />}</SidebarVisibleContext.Consumer>
     <Logo />
     <Links>
       <LinkItems to="https://github.com/gatsbook/gatsbook">Github</LinkItems>
