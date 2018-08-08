@@ -11,7 +11,7 @@ const Container = styled.div`
 `
 
 const CardContainer = styled.div`
-  ${tw('w-1/2 py-8')};
+  ${tw('md:w-2/3 lg:w-1/2 md:py-8')};
 `
 
 const BlogIndex = ({ data }) => (
