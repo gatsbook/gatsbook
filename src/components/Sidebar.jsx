@@ -14,7 +14,7 @@ const Container = styled.div`
   transition: 0.5s;
   ${tw('bg-grey-lighter pt-8 flex overflow-hidden')};
   /* mobile */
-  ${tw('w-4/5 fixed min-h-full pl-8')};
+  ${tw('w-4/5 fixed min-h-full pl-8 z-10')};
   /* desktop */
   ${tw('lg:w-1/4 lg:static lg:justify-center')};
   ${props => !props.isVisible && hide};
@@ -51,17 +51,31 @@ Item.defaultProps = {
   head: false,
 }
 
-const Sidebar = ({ isVisible }) => (
-  <Container isVisible={isVisible}>
-    <List>{data.map(({ title, slug, head }) => <Item key={slug} title={title} slug={slug} head={head} />)}</List>
-  </Container>
+const Overlay = styled.div`
+  transition: 0.5s;
+  ${tw('bg-black fixed h-full w-full')};
+  right: 0;
+  ${tw('lg:hidden')};
+  opacity: ${props => (props.isVisible ? 0.1 : 0.0)};
+  ${props => !props.isVisible && 'visibility: hidden'};
+`
+
+const Sidebar = ({ isVisible, toggle }) => (
+  <React.Fragment>
+    <Container isVisible={isVisible}>
+      <List>{data.map(({ title, slug, head }) => <Item key={slug} title={title} slug={slug} head={head} />)}</List>
+    </Container>
+    <Overlay isVisible={isVisible} onClick={toggle} />
+  </React.Fragment>
 )
 Sidebar.propTypes = {
   isVisible: PropTypes.bool.isRequired,
 }
 
 const SidebarWithContext = () => (
-  <SidebarVisibleContext.Consumer>{({ on }) => <Sidebar isVisible={on} />}</SidebarVisibleContext.Consumer>
+  <SidebarVisibleContext.Consumer>
+    {({ on, toggle }) => <Sidebar isVisible={on} toggle={toggle} />}
+  </SidebarVisibleContext.Consumer>
 )
 
 export default SidebarWithContext

@@ -34,20 +34,20 @@ const Logo = () => (
   </Link>
 )
 
-const Menu = props => (
-  <div
-    {...props}
-    className={css`
-      ${tw('block lg:hidden pr-4 text-lg')};
-    `}
-  >
-    &#9776;
-  </div>
+const StyledMenu = styled.div`
+  ${tw('block lg:hidden pr-4 text-lg')};
+`
+const CloseIcon = () => <span>&#x2715;</span>
+const HamburgerIcon = () => <span>&#9776;</span>
+const Menu = () => (
+  <SidebarVisibleContext.Consumer>
+    {({ toggle, on }) => <StyledMenu onClick={toggle}>{on ? <CloseIcon /> : <HamburgerIcon />}</StyledMenu>}
+  </SidebarVisibleContext.Consumer>
 )
 
 const Navigation = () => (
   <Container>
-    <SidebarVisibleContext.Consumer>{({ toggle }) => <Menu onClick={toggle} />}</SidebarVisibleContext.Consumer>
+    <Menu />
     <Logo />
     <Links>
       <LinkItems to="https://github.com/gatsbook/gatsbook">Github</LinkItems>
