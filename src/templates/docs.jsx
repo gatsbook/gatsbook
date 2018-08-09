@@ -8,6 +8,7 @@ import TableOfContent from '../components/TableOfContent'
 import TimeToRead from '../components/TimeToRead'
 import Date from '../components/Date'
 import Seperator from '../components/Seperator'
+import { left as borderLeft } from '../styles/border'
 
 const Content = styled.div`
   ${tw('container flex-1')};
@@ -16,8 +17,7 @@ const ContentContainer = styled.div`
   ${tw('mx-auto w-5/6')};
 `
 const Header = styled.div`
-  border-left: 3px solid;
-  ${tw('border-purple')};
+  ${borderLeft};
   ${tw('mx-auto text-xl pl-4 my-8')};
 `
 const Title = styled.h1`
