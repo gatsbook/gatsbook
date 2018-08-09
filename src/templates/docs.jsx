@@ -26,6 +26,9 @@ const Title = styled.h1`
 
 const Body = styled.div`
   ${tw('mx-auto')};
+  p {
+    ${tw('mb-8 leading-loose')};
+  }
 `
 
 const Container = styled.div`
