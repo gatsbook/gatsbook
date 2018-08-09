@@ -3,25 +3,40 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import Layout from '../components/Layout'
+import TimeToRead from '../components/TimeToRead'
+import Date from '../components/Date'
+import Seperator from '../components/Seperator'
 
-const PostContainer = styled.div`
-  ${tw('container')};
+const PostContainer = styled.div``
+
+const Header = styled.div`
+  ${tw('mx-auto lg:w-2/5 pt-16 pb-8')};
 `
-
-const Header = styled.div``
 
 const Title = styled.h1`
-  ${tw('text-5xl w-3/5 pl-32')};
-`
-const DateContainer = styled.div`
-  ${tw('inline-block pl-40 absolute')};
-`
-const Date = styled.div`
-  ${tw('w-4/5  text-right float-right')};
+  ${tw('lg:text-4xl m-0')};
 `
 
-const Content = styled.div`
-  ${tw('mx-auto w-3/5 px-8 text-xl')};
+const Body = styled.div`
+  ${tw('mx-auto lg:w-2/5 lg:text-lg')};
+  img,
+  iframe {
+    ${tw('w-full')};
+  }
+  p {
+    ${tw('mb-8 leading-loose')};
+  }
+  li p {
+    ${tw('mb-0')};
+  }
+  a {
+    ${tw('text-black underline')};
+  }
+  blockquote {
+    h1 {
+      ${tw('text-3xl font-thin italic')};
+    }
+  }
 `
 
 export const Blog = ({ data }) => {
@@ -31,11 +46,11 @@ export const Blog = ({ data }) => {
       <PostContainer>
         <Header>
           <Title>{post.frontmatter.title}</Title>
-          <DateContainer>
-            <Date>{post.frontmatter.date}</Date>
-          </DateContainer>
+          <TimeToRead>{post.timeToRead} min read</TimeToRead>
+          <Seperator>&middot;</Seperator>
+          <Date>{post.frontmatter.date}</Date>
         </Header>
-        <Content dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Body dangerouslySetInnerHTML={{ __html: post.html }} />
       </PostContainer>
     </Layout>
   )
@@ -54,7 +69,9 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "Do MMM, YYYY")
+        image
       }
+      timeToRead
     }
   }
 `
