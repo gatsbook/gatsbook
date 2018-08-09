@@ -1,5 +1,14 @@
 export default [
   {
+    title: 'Example',
+    slug: '/example',
+    head: true,
+  },
+  {
+    title: 'All links below has no content',
+    slug: '/',
+  },
+  {
     title: 'Getting Started',
     slug: '/',
     head: true,
