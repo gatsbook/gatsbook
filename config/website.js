@@ -15,7 +15,9 @@ module.exports = {
   ogSiteName: 'gatsbook', // Facebook Site Name
   ogLanguage: 'en_US', // Facebook Language
 
+  primaryColor: '#9561e2',
+
   // Manifest and Progress color
-  themeColor: tailwind.colors.white,
-  backgroundColor: tailwind.colors.blue,
+  themeColor: '#fff',
+  backgroundColor: '#fff',
 }
