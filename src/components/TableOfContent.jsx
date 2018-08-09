@@ -7,7 +7,7 @@ const Container = styled.div`
 `
 const List = styled.ul`
   border-left: 1px solid;
-  ${tw('border-grey')};
+  ${tw('border-grey-light')};
   ${tw('list-reset pl-3')};
 `
 const ListItem = styled.li`
