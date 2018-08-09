@@ -69,7 +69,6 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "Do MMM, YYYY")
-        image
       }
       timeToRead
     }
