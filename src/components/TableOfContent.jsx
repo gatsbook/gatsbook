@@ -21,13 +21,16 @@ const TableOfContent = ({ headings }) => (
   <Container>
     <span>Table Of Content</span>
     <List>
-      {headings.map(heading => (
-        <a key={heading.value} href={headingToId(heading.value)}>
-          <ListItem key={heading.value} depth={heading.depth}>
-            {heading.value}
-          </ListItem>
-        </a>
-      ))}
+      {headings.map(
+        heading =>
+          heading.depth <= 3 && (
+            <a key={heading.value} href={headingToId(heading.value)}>
+              <ListItem key={heading.value} depth={heading.depth}>
+                {heading.value}
+              </ListItem>
+            </a>
+          )
+      )}
     </List>
   </Container>
 )
