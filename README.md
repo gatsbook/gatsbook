@@ -18,9 +18,12 @@ npm run build
 
 ## Configuration
 
-- Site configurations is located  `config/website.js`
-
+- Site configurations is located `config/website.js`
 
 ## License
 
 MIT
+
+## Credits
+
+Icon is a modified Icon by [Gregor Cresnas](https://www.flaticon.com/authors/gregor-cresnar) from www.flaticon.com
