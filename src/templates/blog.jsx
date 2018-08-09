@@ -23,7 +23,6 @@ const Body = styled.div`
   ${tw('mx-auto lg:w-2/5 lg:text-lg')};
   overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto;
   img,
   iframe {
     ${tw('w-full')};
