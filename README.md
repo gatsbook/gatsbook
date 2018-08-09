@@ -19,3 +19,8 @@ npm run build
 ## Configuration
 
 - Site configurations is located  `config/website.js`
+
+
+## License
+
+MIT
