@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 const Container = styled.div`
   ${tw('w-1/5 pt-8 hidden xl:block')};
 `
+const Title = styled.span`
+  ${tw('text-grey')};
+`
 const List = styled.ul`
   border-left: 1px solid;
   ${tw('border-grey-light')};
@@ -19,7 +22,7 @@ const headingToId = string => `#${string.toLowerCase().replace(/\s/g, '-')}`
 
 const TableOfContent = ({ headings }) => (
   <Container>
-    <span>Table Of Content</span>
+    <Title>Table Of Content</Title>
     <List>
       {headings.map(
         heading =>
