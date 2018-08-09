@@ -7,7 +7,9 @@ import TimeToRead from '../components/TimeToRead'
 import Date from '../components/Date'
 import Seperator from '../components/Seperator'
 
-const PostContainer = styled.div``
+const Container = styled.div`
+  ${tw('px-8 md:px-16 lg:px-0')};
+`
 
 const Header = styled.div`
   ${tw('mx-auto lg:w-2/5 pt-16 pb-8')};
@@ -19,6 +21,9 @@ const Title = styled.h1`
 
 const Body = styled.div`
   ${tw('mx-auto lg:w-2/5 lg:text-lg')};
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
   img,
   iframe {
     ${tw('w-full')};
@@ -34,7 +39,7 @@ const Body = styled.div`
   }
   blockquote {
     h1 {
-      ${tw('text-3xl font-thin italic')};
+      ${tw('text-xl lg:text-3xl font-thin italic')};
     }
   }
 `
@@ -43,7 +48,7 @@ export const Blog = ({ data }) => {
   const post = data.markdownRemark
   return (
     <Layout>
-      <PostContainer>
+      <Container>
         <Header>
           <Title>{post.frontmatter.title}</Title>
           <TimeToRead>{post.timeToRead} min read</TimeToRead>
@@ -51,7 +56,7 @@ export const Blog = ({ data }) => {
           <Date>{post.frontmatter.date}</Date>
         </Header>
         <Body dangerouslySetInnerHTML={{ __html: post.html }} />
-      </PostContainer>
+      </Container>
     </Layout>
   )
 }
