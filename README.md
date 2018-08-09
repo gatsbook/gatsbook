@@ -26,4 +26,5 @@ MIT
 
 ## Credits
 
-Icon is a modified Icon by [Gregor Cresnas](https://www.flaticon.com/authors/gregor-cresnar) from www.flaticon.com
+- Icon is a modified Icon by [Gregor Cresnas](https://www.flaticon.com/authors/gregor-cresnar) from www.flaticon.com
+- Project structure based on [Gatsby Starter Portfolio Cara](https://github.com/LeKoArts/gatsby-starter-portfolio-cara)
