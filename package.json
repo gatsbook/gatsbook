@@ -19,7 +19,7 @@
     "gatsby-plugin-sharp": "^2.0.0-alpha.19",
     "gatsby-remark-autolink-headers": "^1.4.19",
     "gatsby-source-filesystem": "^2.0.0-alpha.15",
-    "gatsby-transformer-remark": "^1.7.44",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.1.1-beta.5",
     "postcss": "^6.0.22",
     "postcss-cli": "^5.0.0",
